@@ -1,0 +1,24 @@
+
+body, html {
+  background-color: #202020;
+}
+.main-block {
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Fjalla one;
+}
+
+.crop-img {
+  width:75%; 
+  aspect-ratio: 1/1; 
+  border-radius: 16px;
+}
+
+.crop-img img{
+  width:100%; 
+  height:100%; 
+  object-fit:cover;
+}

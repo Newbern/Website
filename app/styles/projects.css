@@ -1,0 +1,22 @@
+<style>
+    .laptop {
+      width: 600px;
+      margin: 50px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      background: #333;
+    }
+    
+    .screen img {
+      width: 100%;
+      display: block;
+    }
+    
+    .base {
+      height: 40px;
+      background: #222;
+      border-radius: 0 0 15px 15px;
+    }
+    
+</style>
