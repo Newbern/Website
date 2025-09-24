@@ -11,10 +11,10 @@ if (!in_array($page, $allowedPages)) {
 }
 
 // Including Page-specific content
-$content = "app/templates/{$page}.html";
-$style = "app/styles/{$page}.css";
-$Javascript = "app/controllers/{$page}.js";
-$backend = "app/backend/{$page}.php";
+// $content = "app/templates/{$page}.html";
+// $style = "app/styles/{$page}.css";
+// $Javascript = "app/controllers/{$page}.js";
+// $backend = "app/backend/{$page}.php";
 
 
 // Including the base template

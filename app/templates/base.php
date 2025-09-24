@@ -19,6 +19,7 @@
                 width: 100%;
                 height: 100%;
                 margin: 0;
+                background-color: #202020ff;
             }
 
             /* Header Styling */
@@ -80,7 +81,9 @@
 
             /* Sidebar Styling */
             .sidebar {
+                display: flex;
                 flex-direction: column;
+                text-align: center;
                 width: 75%;
                 height: 100%;
                 background-color: #af4428;
@@ -93,7 +96,7 @@
                 border-right: solid black 4px;
             }
             /* Tabs */
-            .sidebar a {
+            .sidebar button{
                 display: flex;
                 padding: 15px;
                 text-decoration: none;
@@ -107,7 +110,10 @@
                 margin-top: 10px;
                 opacity: 0;
             }
-            .sidebar a:hover {
+            .sidebar-btn {
+                all: unset;
+            }
+            .sidebar button:hover {
                 color: black;
                 border-color: black;
                 background-color: white;
@@ -119,7 +125,7 @@
                 left:0;
             }
             
-            .sidebar.active a {
+            .sidebar.active button {
                 animation: slideIn 0.5s forwards;
             }
 
@@ -133,12 +139,12 @@
                     transform: translateX(0);
                 }
             }
-            .sidebar.active a:nth-child(1) {animation-delay: 0.2s;}
-            .sidebar.active a:nth-child(2) {animation-delay: 0.4s;}
-            .sidebar.active a:nth-child(3) {animation-delay: 0.6s;}
-            .sidebar.active a:nth-child(4) {animation-delay: 0.8s;}
-            .sidebar.active a:nth-child(5) {animation-delay: 1s;}
-            .sidebar.active a:nth-child(6) {animation-delay: 1.2s;}
+            .sidebar.active button:nth-child(1) {animation-delay: 0.2s;}
+            .sidebar.active button:nth-child(2) {animation-delay: 0.4s;}
+            .sidebar.active button:nth-child(3) {animation-delay: 0.6s;}
+            .sidebar.active button:nth-child(4) {animation-delay: 0.8s;}
+            .sidebar.active button:nth-child(5) {animation-delay: 1s;}
+            .sidebar.active button:nth-child(6) {animation-delay: 1.2s;}
 
             /* Close Tab animation */
             .sidebar.closing {
@@ -146,7 +152,7 @@
                 transition-delay: 1.4s;
             }
 
-            .sidebar.closing a {
+            .sidebar.closing button {
                 animation: slideOut 0.5s backwards;
             }
             
@@ -161,12 +167,12 @@
                 }
             }
 
-            .sidebar.closing a:nth-child(1) {animation-delay: 1.2s;}
-            .sidebar.closing a:nth-child(2) {animation-delay: 1s;}
-            .sidebar.closing a:nth-child(3) {animation-delay: 0.8s;}
-            .sidebar.closing a:nth-child(4) {animation-delay: 0.6s;}
-            .sidebar.closing a:nth-child(5) {animation-delay: 0.4s;}
-            .sidebar.closing a:nth-child(6) {animation-delay: 0.2s;}
+            .sidebar.closing button:nth-child(1) {animation-delay: 1.2s;}
+            .sidebar.closing button:nth-child(2) {animation-delay: 1s;}
+            .sidebar.closing button:nth-child(3) {animation-delay: 0.8s;}
+            .sidebar.closing button:nth-child(4) {animation-delay: 0.6s;}
+            .sidebar.closing button:nth-child(5) {animation-delay: 0.4s;}
+            .sidebar.closing button:nth-child(6) {animation-delay: 0.2s;}
             
 
             
@@ -184,7 +190,7 @@
                 font-size: x-small;
                 text-align: center;
                 font-family: 'Fjalla One', sans-serif;
-                position: fixed;
+                position: relative;
                 bottom: 0;
             }
             .icon-img {
@@ -194,7 +200,10 @@
          </style>
 
         <!-- CSS -->
-        <link rel='stylesheet' href="<?php echo $style; ?>">
+        <!-- Home Page -->
+        <link rel='stylesheet' href="app/styles/home.css">
+        <!-- About Us Page -->
+        <link rel='stylesheet' href="app/styles/about-us.css">
         
     </head>
     <body>
@@ -215,15 +224,19 @@
 
         <!-- Sidebar -->
          <aside id="sidebar" class="sidebar">
-            <a href="?page=home">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
-            <a href="#">Projects</a>
-            <a href="#">Resume</a>
+            <button class="sidebar-btn" onclick="showPage('home')">Home</button>
+            <button class="sidebar-btn" onclick="showPage('about-us')">About</button>
+            <button class="sidebar-btn" onclick="showPage('services')">Services</button>
+            <button class="sidebar-btn" onclick="showPage('contact')">Contact</button>
+            <button class="sidebar-btn" onclick="showPage('projects')">Projects</button>
+            <button class="sidebar-btn" onclick="showPage('resume')">Resume</button>
          </aside>
-        <!-- Main Content -->
-         <main><?php if (file_exists($content)){include($content);} ?></main>
+
+        <!-- Homepage -->
+        <div id="home"><?php if (file_exists("app/templates/home.html")){include("app/templates/home.html");} ?></div>
+        <!-- About us Page -->
+        <div id="about-us"><?php if (file_exists("app/templates/about-us.html")){include("app/templates/about-us.html");} ?> </div>
+
         <!-- Footer -->
          <footer class="footer">
             <!-- Social Media Icons -->
@@ -243,7 +256,7 @@
          </footer>
     </body>
         
-    <?php if (file_exists($Javascript)){include($Javascript);} ?>
+    <!-- Base JavaScript -->
     <script>
         // JavaScript for Hamburger Menu Toggle
         const hamburgerMenu = document.querySelector('.hamburger-menu');
@@ -264,8 +277,27 @@
                 sidebar.classList.add('active');
             }
             hamburgerMenu.classList.toggle('active');
-        }
-    );
+        });
 
     </script>
+
+    <!-- Page-specific JavaScript -->
+     <script>
+        function showPage(pageId) {
+            const page = document.getElementById(pageId);
+            const allPages = ['home', 'about-us'];
+            for (const i =0; i < allPages.length; i++) {
+                const pages = document.getElementById(allPages[i]);
+                pages.style.display = 'none';
+            }
+            page.style.display = 'flex';
+
+
+        }
+     </script>
+
+    <!-- Home Page JavaScript -->
+    <script src="app/controllers/home.js"></script>
+    <!-- About Us Page JavaScript -->
+    <script src="app/controllers/about-us.js"></script>
 </html>
