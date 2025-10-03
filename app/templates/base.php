@@ -67,10 +67,6 @@
                 border-radius: 5px
             }
 
-            .hamburger-menu.active {
-                z-index: 101;
-            }
-
             .bar {
                 width: 30px;
                 height: 5px;
@@ -87,8 +83,7 @@
                 width: 75%;
                 height: 100%;
                 background-color: #af4428;
-                overflow-x:hidden;
-                position: fixed;
+                position: absolute;
                 z-index:100;
                 top: 129px;
                 left: -77%;
@@ -96,7 +91,7 @@
                 border-right: solid black 4px;
             }
             /* Tabs */
-            .sidebar button{
+            .sidebar a{
                 display: flex;
                 padding: 15px;
                 text-decoration: none;
@@ -113,19 +108,18 @@
             .sidebar-btn {
                 all: unset;
             }
-            .sidebar button:hover {
+            .sidebar a:hover{
                 color: black;
                 border-color: black;
                 background-color: white;
             }
-
-            
+        
             /* Open Tab animation */
             .sidebar.active {
                 left:0;
             }
             
-            .sidebar.active button {
+            .sidebar.active a {
                 animation: slideIn 0.5s forwards;
             }
 
@@ -139,12 +133,12 @@
                     transform: translateX(0);
                 }
             }
-            .sidebar.active button:nth-child(1) {animation-delay: 0.2s;}
-            .sidebar.active button:nth-child(2) {animation-delay: 0.4s;}
-            .sidebar.active button:nth-child(3) {animation-delay: 0.6s;}
-            .sidebar.active button:nth-child(4) {animation-delay: 0.8s;}
-            .sidebar.active button:nth-child(5) {animation-delay: 1s;}
-            .sidebar.active button:nth-child(6) {animation-delay: 1.2s;}
+            .sidebar.active a:nth-child(1) {animation-delay: 0.2s;}
+            .sidebar.active a:nth-child(2) {animation-delay: 0.4s;}
+            .sidebar.active a:nth-child(3) {animation-delay: 0.6s;}
+            .sidebar.active a:nth-child(4) {animation-delay: 0.8s;}
+            .sidebar.active a:nth-child(5) {animation-delay: 1s;}
+            .sidebar.active a:nth-child(6) {animation-delay: 1.2s;}
 
             /* Close Tab animation */
             .sidebar.closing {
@@ -152,7 +146,7 @@
                 transition-delay: 1.4s;
             }
 
-            .sidebar.closing button {
+            .sidebar.closing a {
                 animation: slideOut 0.5s backwards;
             }
             
@@ -167,15 +161,12 @@
                 }
             }
 
-            .sidebar.closing button:nth-child(1) {animation-delay: 1.2s;}
-            .sidebar.closing button:nth-child(2) {animation-delay: 1s;}
-            .sidebar.closing button:nth-child(3) {animation-delay: 0.8s;}
-            .sidebar.closing button:nth-child(4) {animation-delay: 0.6s;}
-            .sidebar.closing button:nth-child(5) {animation-delay: 0.4s;}
-            .sidebar.closing button:nth-child(6) {animation-delay: 0.2s;}
-            
-
-            
+            .sidebar.closing a:nth-child(1) {animation-delay: 1.2s;}
+            .sidebar.closing a:nth-child(2) {animation-delay: 1s;}
+            .sidebar.closing a:nth-child(3) {animation-delay: 0.8s;}
+            .sidebar.closing a:nth-child(4) {animation-delay: 0.6s;}
+            .sidebar.closing a:nth-child(5) {animation-delay: 0.4s;}
+            .sidebar.closing a:nth-child(6) {animation-delay: 0.2s;}
 
             /* Footer Styling */
             .footer {
@@ -197,13 +188,20 @@
                 width: 25px;
                 height: 25px;
             }
+
+            /* Repositioning Pages */
+            #home, #about, #services, #contact, #projects, #resume {
+                scroll-margin-top: 129px;
+            }
          </style>
 
-        <!-- CSS -->
-        <!-- Home Page -->
-        <link rel='stylesheet' href="app/styles/home.css">
-        <!-- About Us Page -->
-        <link rel='stylesheet' href="app/styles/about-us.css">
+        <!-- CSS for Each Page -->
+        <link id="css-home" rel='stylesheet' href="app/styles/home.css" disabled>
+        <link id="css-about" rel='stylesheet' href="app/styles/about.css" disabled>
+        <link id="css-services" rel='stylesheet' href="app/styles/services.css" disabled>
+        <link id="css-contact" rel='stylesheet' href="app/styles/contact.css" disabled>
+        <link id="css-projects" rel='stylesheet' href="app/styles/projects.css" disabled>
+        <link id="css-resume" rel='stylesheet' href="app/styles/resume.css" disabled>
         
     </head>
     <body>
@@ -223,19 +221,29 @@
         </header>
 
         <!-- Sidebar -->
-         <aside id="sidebar" class="sidebar">
-            <button class="sidebar-btn" onclick="showPage('home')">Home</button>
-            <button class="sidebar-btn" onclick="showPage('about-us')">About</button>
-            <button class="sidebar-btn" onclick="showPage('services')">Services</button>
-            <button class="sidebar-btn" onclick="showPage('contact')">Contact</button>
-            <button class="sidebar-btn" onclick="showPage('projects')">Projects</button>
-            <button class="sidebar-btn" onclick="showPage('resume')">Resume</button>
-         </aside>
-
+        <aside id="sidebar" class="sidebar">
+           <a class="sidebar-btn" href="#home" onclick="showPage('home')">Home</a>
+           <a class="sidebar-btn" href="#about" onclick="showPage('about')">About</a>
+           <a class="sidebar-btn" href="#service" onclick="showPage('services')">Services</a>
+           <a class="sidebar-btn" href="#contact" onclick="showPage('contact')">Contact</a>
+           <a class="sidebar-btn" href="#projects" onclick="showPage('projects')">Projects</a>
+           <a class="sidebar-btn" href="#resume" onclick="showPage('resume')">Resume</a>
+        </aside>
+        
+        <!-- Main Content Area -->
         <!-- Homepage -->
         <div id="home"><?php if (file_exists("app/templates/home.html")){include("app/templates/home.html");} ?></div>
         <!-- About us Page -->
-        <div id="about-us"><?php if (file_exists("app/templates/about-us.html")){include("app/templates/about-us.html");} ?> </div>
+        <div id="about"><?php if (file_exists("app/templates/about.html")){include("app/templates/about.html");} ?> </div>
+        <!-- Services Page -->
+        <div id="services"><?php if (file_exists("app/templates/services.html")){include("app/templates/services.html");} ?> </div>
+        <!-- Contact Page -->
+        <div id="contact"><?php if (file_exists("app/templates/contact.html")){include("app/templates/contact.html");} ?> </div>
+        <!-- Projects Page -->
+        <div id="projects"><?php if (file_exists("app/templates/projects.html")){include("app/templates/projects.html");} ?> </div>
+        <!-- Resume Page -->
+        <div id="resume"><?php if (file_exists("app/templates/resume.html")){include("app/templates/resume.html");} ?> </div>
+
 
         <!-- Footer -->
          <footer class="footer">
@@ -264,7 +272,7 @@
         
         // Checking if Hamburger Menu is clicked
         hamburgerMenu.addEventListener('click', () => {
-            // Activating Opening Animation
+            // Activating closing Animation
             if (sidebar.classList.contains('active')) {
                 sidebar.classList.remove('active');
                 sidebar.classList.add('closing');
@@ -276,24 +284,41 @@
             else {
                 sidebar.classList.add('active');
             }
-            hamburgerMenu.classList.toggle('active');
         });
 
     </script>
 
     <!-- Page-specific JavaScript -->
      <script>
+        // Showing Selected Page
         function showPage(pageId) {
             const page = document.getElementById(pageId);
-            const allPages = ['home', 'about-us'];
-            for (const i =0; i < allPages.length; i++) {
-                const pages = document.getElementById(allPages[i]);
-                pages.style.display = 'none';
-            }
-            page.style.display = 'flex';
-
-
+            const allPages = ['home', 'about', 'services', 'contact', 'projects', 'resume'];
+            allPages.forEach(id => {
+                if (id !== pageId) {
+                    document.getElementById(id).style.display = 'none';
+                    // Disabling the CSS for the unselected pages
+                    document.getElementById('css-' + id).disabled = true;
+                }
+                else {
+                    document.getElementById(id).style.display = 'flex';
+                    // Enabling the CSS for the selected page
+                    document.getElementById('css-' + id).disabled = false;
+                }
+                sidebar.classList.remove('active');
+                
+            });
         }
+
+        // Checking Hash to Show Page
+        if (!window.location.hash) {
+            showPage('home');
+        }
+        else {
+            // Removeing the '#' from the hash
+            showPage(window.location.hash.substring(1));
+        }
+        
      </script>
 
     <!-- Home Page JavaScript -->

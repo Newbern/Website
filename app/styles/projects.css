@@ -1,22 +1,43 @@
-<style>
-    .laptop {
-      width: 600px;
-      margin: 50px auto;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-      background: #333;
-    }
-    
-    .screen img {
-      width: 100%;
-      display: block;
-    }
-    
-    .base {
-      height: 40px;
-      background: #222;
-      border-radius: 0 0 15px 15px;
-    }
-    
-</style>
+body, html {
+  background-color: #0c0c0c;
+}
+/* Probably Trash */
+.laptop {
+  width: 600px;
+  margin: 50px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  background: #333;
+}
+
+.screen img {
+  width: 100%;
+  display: block;
+}
+
+.base {
+  height: 40px;
+  background: #222;
+  border-radius: 0 0 15px 15px;
+}
+
+/* Probably Trash */
+.business-card div{
+  background-color:white;
+  padding: 10px;
+  text-align:center;
+  text-shadow: 0 1px 0 black;
+  border-radius: 16px;
+  color: dodgerblue;
+  border: 1px solid dodgerblue;
+  box-shadow: 0 0 0 2px gray, 0 0 0 4px dodgerblue;
+
+}
+
+.container {
+  width: 90%;
+  aspect-ratio: 0/1;
+  clip-path: polygon(14% 36%, 14% 73%, 44% 90%, 88% 65%, 57% 46%, 57% 11%);
+  position: static;
+}
