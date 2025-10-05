@@ -138,7 +138,6 @@
             .sidebar.active a:nth-child(3) {animation-delay: 0.6s;}
             .sidebar.active a:nth-child(4) {animation-delay: 0.8s;}
             .sidebar.active a:nth-child(5) {animation-delay: 1s;}
-            .sidebar.active a:nth-child(6) {animation-delay: 1.2s;}
 
             /* Close Tab animation */
             .sidebar.closing {
@@ -161,12 +160,11 @@
                 }
             }
 
-            .sidebar.closing a:nth-child(1) {animation-delay: 1.2s;}
-            .sidebar.closing a:nth-child(2) {animation-delay: 1s;}
-            .sidebar.closing a:nth-child(3) {animation-delay: 0.8s;}
-            .sidebar.closing a:nth-child(4) {animation-delay: 0.6s;}
-            .sidebar.closing a:nth-child(5) {animation-delay: 0.4s;}
-            .sidebar.closing a:nth-child(6) {animation-delay: 0.2s;}
+            .sidebar.closing a:nth-child(1) {animation-delay: 1s;}
+            .sidebar.closing a:nth-child(2) {animation-delay: 0.8s;}
+            .sidebar.closing a:nth-child(3) {animation-delay: 0.6s;}
+            .sidebar.closing a:nth-child(4) {animation-delay: 0.4s;}
+            .sidebar.closing a:nth-child(5) {animation-delay: 0.2s;}
 
             /* Footer Styling */
             .footer {
@@ -190,7 +188,7 @@
             }
 
             /* Repositioning Pages */
-            #home, #about, #services, #contact, #projects, #resume {
+            #home, #about, #contact, #projects, #resume {
                 scroll-margin-top: 129px;
             }
          </style>
@@ -198,7 +196,6 @@
         <!-- CSS for Each Page -->
         <link id="css-home" rel='stylesheet' href="app/styles/home.css" disabled>
         <link id="css-about" rel='stylesheet' href="app/styles/about.css" disabled>
-        <link id="css-services" rel='stylesheet' href="app/styles/services.css" disabled>
         <link id="css-contact" rel='stylesheet' href="app/styles/contact.css" disabled>
         <link id="css-projects" rel='stylesheet' href="app/styles/projects.css" disabled>
         <link id="css-resume" rel='stylesheet' href="app/styles/resume.css" disabled>
@@ -224,7 +221,6 @@
         <aside id="sidebar" class="sidebar">
            <a class="sidebar-btn" href="#home" onclick="showPage('home')">Home</a>
            <a class="sidebar-btn" href="#about" onclick="showPage('about')">About</a>
-           <a class="sidebar-btn" href="#service" onclick="showPage('services')">Services</a>
            <a class="sidebar-btn" href="#contact" onclick="showPage('contact')">Contact</a>
            <a class="sidebar-btn" href="#projects" onclick="showPage('projects')">Projects</a>
            <a class="sidebar-btn" href="#resume" onclick="showPage('resume')">Resume</a>
@@ -233,10 +229,8 @@
         <!-- Main Content Area -->
         <!-- Homepage -->
         <div id="home"><?php if (file_exists("app/templates/home.html")){include("app/templates/home.html");} ?></div>
-        <!-- About us Page -->
+        <!-- About Page -->
         <div id="about"><?php if (file_exists("app/templates/about.html")){include("app/templates/about.html");} ?> </div>
-        <!-- Services Page -->
-        <div id="services"><?php if (file_exists("app/templates/services.html")){include("app/templates/services.html");} ?> </div>
         <!-- Contact Page -->
         <div id="contact"><?php if (file_exists("app/templates/contact.html")){include("app/templates/contact.html");} ?> </div>
         <!-- Projects Page -->
@@ -293,7 +287,7 @@
         // Showing Selected Page
         function showPage(pageId) {
             const page = document.getElementById(pageId);
-            const allPages = ['home', 'about', 'services', 'contact', 'projects', 'resume'];
+            const allPages = ['home', 'about', 'contact', 'projects', 'resume'];
             allPages.forEach(id => {
                 if (id !== pageId) {
                     document.getElementById(id).style.display = 'none';
@@ -325,4 +319,10 @@
     <script src="app/controllers/home.js"></script>
     <!-- About Us Page JavaScript -->
     <script src="app/controllers/about-us.js"></script>
+    <!-- Contact Page JavaScript -->
+    <script src="app/controllers/contact.js"></script>
+    <!-- Projects Page JavaScript -->
+    <script src="app/controllers/projects.js"></script>
+    <!-- Resume Page JavaScript -->
+    <script src="app/controllers/resume.js"></script>
 </html>

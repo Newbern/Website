@@ -2,13 +2,13 @@
 body, html {
   background-color: #0c0c0c;
 }
-.main-block{
+.main-block {
     display:flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     color: white;
-    text-align: center;
     font-family: Fjalla one;
     width:100%
 
@@ -31,6 +31,7 @@ body, html {
     font-size: large;
     width:100%;
     
+    
 
     input{
         all:unset;
@@ -40,7 +41,8 @@ body, html {
         border-radius:16px;
         background-color:white;
         color:black;
-        width:100%
+        width:100%;
+        cursor: pointer;
     }
     textarea{
         width: 100%; 
@@ -48,10 +50,26 @@ body, html {
         font-size:large;
         font-family: Fjalla one;
         border-radius: 10px;
+        cursor: pointer;
 
     }
 }
 
 .info input:focus, .info textarea:focus {
     outline: 2px solid #af4428;
+}
+
+button {
+    all: unset;
+}
+
+button.btn {
+    border:1px solid white;
+    padding:5px;
+    margin-block:10px;
+    border-radius:5px;
+}
+button.btn:hover {
+    border-color: #af4428;
+    cursor: pointer;
 }
