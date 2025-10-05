@@ -40,11 +40,9 @@ body, html {
   border: 1px solid black;
 }
 
-button {
-  all: unset;
-}
-
 button.btn {
+  all: unset;
+  cursor: pointer;
   width: 15px;
   height: 15px;
   background: #ff5f56;

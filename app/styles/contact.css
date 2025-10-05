@@ -59,11 +59,8 @@ body, html {
     outline: 2px solid #af4428;
 }
 
-button {
-    all: unset;
-}
-
 button.btn {
+    all: unset;
     border:1px solid white;
     padding:5px;
     margin-block:10px;

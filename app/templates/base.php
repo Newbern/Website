@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Icon -->
-        <link rel="icon" type="image/png" href="app/media/icon.png"/>
+        <link rel="icon" type="image/png" href="app/media/Logo/icon.png"/>
 
         <!-- Importing Fonts from Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -213,7 +213,7 @@
             
             <!-- Logo -->
             <div class="logo-container">
-                <img src="app/media/logo.png" alt="Logo" class="logo-img">
+                <img src="app/media/Logo/logo.png" alt="Logo" class="logo-img">
             </div>
         </header>
 
@@ -228,15 +228,15 @@
         
         <!-- Main Content Area -->
         <!-- Homepage -->
-        <div id="home"><?php if (file_exists("app/templates/home.html")){include("app/templates/home.html");} ?></div>
+        <div id="home" style="min-height:69%"><?php if (file_exists("app/templates/home.html")){include("app/templates/home.html");} ?></div>
         <!-- About Page -->
-        <div id="about"><?php if (file_exists("app/templates/about.html")){include("app/templates/about.html");} ?> </div>
+        <div id="about" style="min-height:69%"><?php if (file_exists("app/templates/about.html")){include("app/templates/about.html");} ?> </div>
         <!-- Contact Page -->
-        <div id="contact"><?php if (file_exists("app/templates/contact.html")){include("app/templates/contact.html");} ?> </div>
+        <div id="contact" style="min-height:69%"><?php if (file_exists("app/templates/contact.html")){include("app/templates/contact.html");} ?> </div>
         <!-- Projects Page -->
-        <div id="projects"><?php if (file_exists("app/templates/projects.html")){include("app/templates/projects.html");} ?> </div>
+        <div id="projects" style="min-height:69%"><?php if (file_exists("app/templates/projects.html")){include("app/templates/projects.html");} ?> </div>
         <!-- Resume Page -->
-        <div id="resume"><?php if (file_exists("app/templates/resume.html")){include("app/templates/resume.html");} ?> </div>
+        <div id="resume" style="min-height:69%"><?php if (file_exists("app/templates/resume.html")){include("app/templates/resume.html");} ?> </div>
 
 
         <!-- Footer -->
@@ -273,10 +273,12 @@
                 // Timmer till Removal of Closing Animation
                 setTimeout(() => {
                     sidebar.classList.remove('closing');
+                    document.body.style.overflow = 'auto'; // Enable scrolling
                 }, 1400);
                 }
             else {
                 sidebar.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Disable scrolling
             }
         });
 
@@ -286,6 +288,7 @@
      <script>
         // Showing Selected Page
         function showPage(pageId) {
+            document.body.style.overflow = 'auto'; // Enable scrolling
             const page = document.getElementById(pageId);
             const allPages = ['home', 'about', 'contact', 'projects', 'resume'];
             allPages.forEach(id => {

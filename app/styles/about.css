@@ -8,6 +8,7 @@ body, html {
   flex-direction: column;
   align-items: center;
   font-family: Fjalla one;
+  width:100%;
 }
 .main-block h1 {
   font-size: 36px;
