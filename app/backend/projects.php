@@ -1,7 +1,7 @@
 <?php
 
-$companys = '[{"name": "Double Dubs", "description": "Description for project 1", "image": "project1.jpg"},
-              {"name": "Project 2", "description": "Description for project 2", "image": "project2.jpg"},
-              {"name": "Project 3", "description": "Description for project 3", "image": "project3.jpg"}]';
+$companys = '[{"name": "Patricks Home Service", "url": "https://www.patrickshomeservice.com", "image": "app/media/Company/Patricks Home Service.png"},
+              {"name": "Bluff Creek Electric LLC", "url": "https://www.bluffcreekelectricllc.com", "image": "app/media/Company/Bluff Creek Electric.png"},
+              {"name": "Double Dubs", "url": "#projects", "image": "app/media/Company/Double Dubs.png"}]';
 
 ?>

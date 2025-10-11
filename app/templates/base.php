@@ -4,8 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+        <!-- SEO Meta Tags -->
+        <title>Steven Newbern - Full-Stack Developer</title>
+        <meta name="description" content="💻 I build fast, secure websites for contractors & small businesses | from landing pages to full builds | built to showcase your work and get more leads.">
+        <meta name="author" content="Steven Newbern">
+
+        <meta name="keywords" content="Steven Newbern, Full-Stack Developer, Freelance, Web Developer, Backend Developer, Frontend Developer, Resume, Projects, Contact">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#af4428">
+
         <!-- Icon -->
-        <link rel="icon" type="image/png" href="app/media/Logo/icon.png"/>
+        <link rel="icon" type="image/png" href="app/media/Logo/Icon.png">
 
         <!-- Importing Fonts from Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -234,7 +244,7 @@
         <!-- Contact Page -->
         <div id="contact" style="min-height:69%"><?php if (file_exists("app/templates/contact.html")){include("app/templates/contact.html");} ?> </div>
         <!-- Projects Page -->
-        <div id="projects" style="min-height:69%"><?php if (file_exists("app/templates/projects.html")){include("app/templates/projects.html");} ?> </div>
+        <div id="projects" style="min-height:69%"><?php if (file_exists("app/templates/projects.php")){include("app/templates/projects.php");} ?> </div>
         <!-- Resume Page -->
         <div id="resume" style="min-height:69%"><?php if (file_exists("app/templates/resume.html")){include("app/templates/resume.html");} ?> </div>
 
@@ -254,7 +264,7 @@
                 <!-- Discord -->
                 <a href="https://discord.com/channels/@steven_newbern" alt="Discord link"><img class="icon-img" src="https://img.icons8.com/color/48/discord-logo.png" alt="Discord Icon"></a>
             </div>
-            <p>© 2025 Steven Newbern. All rights reserved Website by <a href="https://StevenNewbern.com/">Steven Newbern</a>. Icons by <a href="https://icons8.com/">Icons8</a></p>
+            <p>© 2025 Steven Newbern. All rights reserved Website by <a style="color:black" href="https://StevenNewbern.com/">Steven Newbern</a>. Icons by <a style="color:black" href="https://icons8.com/">Icons8</a></p>
          </footer>
     </body>
         

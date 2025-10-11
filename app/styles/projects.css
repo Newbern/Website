@@ -4,9 +4,10 @@ body, html {
 
 .main-block {
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   width: 100%;
+  justify-content: center;;
 }
 
 .laptop{
@@ -23,13 +24,7 @@ body, html {
   border-radius: 15px 15px 0 0;
   border-inline: 1px solid black;
   border-top: 1px solid black;
-  overflow: hidden;
   padding: 15px;
-}
-
-.screen img {
-  width: 100%;
-  aspect-ratio: 0/1;
 }
 
 .base {
@@ -40,13 +35,41 @@ body, html {
   border: 1px solid black;
 }
 
-button.btn {
-  all: unset;
+.btn {
+  all:unset;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  width: 15px;
-  height: 15px;
-  background: #ff5f56;
-  border-radius: 50%;
-  border: 1px solid black;
-  margin-right: 5px;
+  width:50px;
+  aspect-ratio: 1/1;
+  font-size:x-large;
+  font-weight: 900;
+  border: 2px solid white;
+  border-radius: 100%;
+  color:white;
 }
+.btn:hover {
+  color: #af4428;
+  border-color: #af4428
+}
+.pages {
+  display:none;
+}
+
+.pages img {
+  width:100%;
+  aspect-ratio: 14/9;
+  object-fit: cover;
+}
+
+
+.pages.active {
+  display: flex;
+
+}
+
+.pages.off {
+  display: none;
+}
+

@@ -59,14 +59,14 @@ body, html {
     outline: 2px solid #af4428;
 }
 
-button.btn {
+.btn {
     all: unset;
     border:1px solid white;
     padding:5px;
     margin-block:10px;
     border-radius:5px;
 }
-button.btn:hover {
+.btn:hover {
     border-color: #af4428;
     cursor: pointer;
 }

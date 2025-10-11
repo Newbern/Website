@@ -1,14 +1,14 @@
 <?php 
 // Allowed pages
-$allowedPages = ['home'];
+// $allowedPages = ['home'];
 
-// Getting current page
-$page = $_GET['page'] ?? 'home';
+// // Getting current page
+// $page = $_GET['page'] ?? 'home';
 
-// Validating page
-if (!in_array($page, $allowedPages)) {
-    $page = 'home';
-}
+// // Validating page
+// if (!in_array($page, $allowedPages)) {
+//     $page = 'home';
+// }
 
 // Including Page-specific content
 // $content = "app/templates/{$page}.html";
@@ -16,6 +16,10 @@ if (!in_array($page, $allowedPages)) {
 // $Javascript = "app/controllers/{$page}.js";
 // $backend = "app/backend/{$page}.php";
 
+
+
+include("app/backend/projects.php");
+include("app/backend/contact.php");
 
 // Including the base template
 include("app/templates/base.php");

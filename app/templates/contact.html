@@ -1,17 +1,17 @@
 <div class="main-block">
     <h1>Contact Us</h1>
-    <p>Have any questions? Reach out bellow!</p>
+    <p>Have any questions? Reach out below!</p>
     <form class="contact-form" action="/" method="post">
         <div class="info">
-            <label>Full Name</label>
-            <input class="fname" type="text" name="name" placeholder="Full Name" required>
-            <label>Email</label>
-            <input type="text" name="email" placeholder="Email" required>
-            <label>Phone Number</label>
-            <input type="text" name="phone" placeholder="Phone">
-        
-            <label>Message</label>
-            <textarea name="message" placeholder="Your Message" required></textarea>
+            <label for="name">Full Name</label>
+            <input id="name" type="text" name="name" placeholder="Full Name" required autocomplete="name">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="Email" required autocomplete="email">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="tel" name="phone" placeholder="Phone" required autocomplete="tel">
+            <input name="subject" type="text" style="display:none;">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" required autocomplete="off"></textarea>
         </div>
             <button class="btn" type="submit">Send</button>
     </form>
