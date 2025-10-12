@@ -4,12 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
         <!-- SEO Meta Tags -->
-        <title>Steven Newbern - Full-Stack Developer</title>
-        <meta name="description" content="💻 I build fast, secure websites for contractors & small businesses | from landing pages to full builds | built to showcase your work and get more leads.">
+        <?php if (file_exists($SEO)) {include($SEO);} ?>
         <meta name="author" content="Steven Newbern">
-
         <meta name="keywords" content="Steven Newbern, Full-Stack Developer, Freelance, Web Developer, Backend Developer, Frontend Developer, Resume, Projects, Contact">
         <meta name="robots" content="index, follow">
         <meta name="theme-color" content="#af4428">
@@ -24,6 +21,7 @@
 
         <!-- base CSS -->
         <style>
+
             /* Html and Body reset */
             body, html {
                 width: 100%;
@@ -203,12 +201,9 @@
             }
          </style>
 
-        <!-- CSS for Each Page -->
-        <link id="css-home" rel='stylesheet' href="app/styles/home.css" disabled>
-        <link id="css-about" rel='stylesheet' href="app/styles/about.css" disabled>
-        <link id="css-contact" rel='stylesheet' href="app/styles/contact.css" disabled>
-        <link id="css-projects" rel='stylesheet' href="app/styles/projects.css" disabled>
-        <link id="css-resume" rel='stylesheet' href="app/styles/resume.css" disabled>
+        <!-- Page-specific CSS -->
+        <?php echo "<link rel='stylesheet' href='$style'>" ?>
+        
         
     </head>
     <body>
@@ -229,24 +224,16 @@
 
         <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
-           <a class="sidebar-btn" href="#home" onclick="showPage('home')">Home</a>
-           <a class="sidebar-btn" href="#about" onclick="showPage('about')">About</a>
-           <a class="sidebar-btn" href="#contact" onclick="showPage('contact')">Contact</a>
-           <a class="sidebar-btn" href="#projects" onclick="showPage('projects')">Projects</a>
-           <a class="sidebar-btn" href="#resume" onclick="showPage('resume')">Resume</a>
+           <a class="sidebar-btn" href="index.php?page=home" onclick="showPage('home')">Home</a>
+           <a class="sidebar-btn" href="index.php?page=about" onclick="showPage('about')">About</a>
+           <a class="sidebar-btn" href="index.php?page=contact" onclick="showPage('contact')">Contact</a>
+           <a class="sidebar-btn" href="index.php?page=projects" onclick="showPage('projects')">Projects</a>
+           <a class="sidebar-btn" href="index.php?page=resume" onclick="showPage('resume')">Resume</a>
         </aside>
         
         <!-- Main Content Area -->
-        <!-- Homepage -->
-        <div id="home" style="min-height:69%"><?php if (file_exists("app/templates/home.html")){include("app/templates/home.html");} ?></div>
-        <!-- About Page -->
-        <div id="about" style="min-height:69%"><?php if (file_exists("app/templates/about.html")){include("app/templates/about.html");} ?> </div>
-        <!-- Contact Page -->
-        <div id="contact" style="min-height:69%"><?php if (file_exists("app/templates/contact.html")){include("app/templates/contact.html");} ?> </div>
-        <!-- Projects Page -->
-        <div id="projects" style="min-height:69%"><?php if (file_exists("app/templates/projects.php")){include("app/templates/projects.php");} ?> </div>
-        <!-- Resume Page -->
-        <div id="resume" style="min-height:69%"><?php if (file_exists("app/templates/resume.html")){include("app/templates/resume.html");} ?> </div>
+        <main style='min-height:69%'><?php if (file_exists($content)) {include($content);}?></main>
+        
 
 
         <!-- Footer -->
@@ -293,49 +280,6 @@
         });
 
     </script>
-
     <!-- Page-specific JavaScript -->
-     <script>
-        // Showing Selected Page
-        function showPage(pageId) {
-            document.body.style.overflow = 'auto'; // Enable scrolling
-            const page = document.getElementById(pageId);
-            const allPages = ['home', 'about', 'contact', 'projects', 'resume'];
-            allPages.forEach(id => {
-                if (id !== pageId) {
-                    document.getElementById(id).style.display = 'none';
-                    // Disabling the CSS for the unselected pages
-                    document.getElementById('css-' + id).disabled = true;
-                }
-                else {
-                    document.getElementById(id).style.display = 'flex';
-                    // Enabling the CSS for the selected page
-                    document.getElementById('css-' + id).disabled = false;
-                }
-                sidebar.classList.remove('active');
-                
-            });
-        }
-
-        // Checking Hash to Show Page
-        if (!window.location.hash) {
-            showPage('home');
-        }
-        else {
-            // Removeing the '#' from the hash
-            showPage(window.location.hash.substring(1));
-        }
-        
-     </script>
-
-    <!-- Home Page JavaScript -->
-    <script src="app/controllers/home.js"></script>
-    <!-- About Us Page JavaScript -->
-    <script src="app/controllers/about-us.js"></script>
-    <!-- Contact Page JavaScript -->
-    <script src="app/controllers/contact.js"></script>
-    <!-- Projects Page JavaScript -->
-    <script src="app/controllers/projects.js"></script>
-    <!-- Resume Page JavaScript -->
-    <script src="app/controllers/resume.js"></script>
+    <?php echo "<script src='$Javascript'></script>" ?>
 </html>

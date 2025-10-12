@@ -1,27 +1,30 @@
 <?php 
 // Allowed pages
-// $allowedPages = ['home'];
+$allowedPages = ['home', 'about', 'contact', 'projects', 'resume'];
 
-// // Getting current page
-// $page = $_GET['page'] ?? 'home';
+// Getting current page
+$page = $_GET['page'] ?? 'home';
 
-// // Validating page
-// if (!in_array($page, $allowedPages)) {
-//     $page = 'home';
-// }
+// Validating page
+if (!in_array($page, $allowedPages)) {
+    $page = 'home';
+}
 
 // Including Page-specific content
-// $content = "app/templates/{$page}.html";
-// $style = "app/styles/{$page}.css";
-// $Javascript = "app/controllers/{$page}.js";
-// $backend = "app/backend/{$page}.php";
+// Checking Content
+$content = "app/templates/{$page}.html";
+if (!file_exists($content)) {
+    $content = "app/templates/{$page}.php";
+}
+$style = "app/styles/{$page}.css";
+$Javascript = "app/controllers/{$page}.js";
+$backend = "app/backend/{$page}.php";
+$SEO = "app/SEO/{$page}.html";
 
-
-
-include("app/backend/projects.php");
-include("app/backend/contact.php");
-
-// Including the base template
+// Including the Backend Varables before loading the template
+if (file_exists($backend)) {
+    include($backend);
+}
+// Loading the Template
 include("app/templates/base.php");
 
-?>
