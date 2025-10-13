@@ -26,10 +26,9 @@ $mail -> Password = $_ENV['SMTP_PASS']; // Your Gmail App Password
 $mail -> SMTPSecure = 'tls'; // Encryption - tls/ssl
 $mail -> Port = 587; // SMTP Port - tls-587/ssl-465
 
-
-
 // Sendding Email
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+try {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Getting Data
     $name = $_POST['name'] ?? 'N/A';
     $email = $_POST['email'] ?? 'N/A';
@@ -77,5 +76,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mail -> clearCCs();
     $mail -> clearBCCs();
 
+    }
+}
+catch (Exception $e) {
+    // Handling Error
+    http_response_code(500);
+    error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+    exit();
 }
 ?>
