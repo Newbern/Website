@@ -1,4 +1,8 @@
 RewriteEngine On
+
+# If the requested file or folder exists, serve it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+
+# Otherwise, redirect all requests to index.php with page parameter
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?page=$1 [L,QSA]
