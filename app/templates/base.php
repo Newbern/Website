@@ -224,11 +224,11 @@
 
         <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
-           <a class="sidebar-btn" href="index.php?page=home" onclick="showPage('home')">Home</a>
-           <a class="sidebar-btn" href="index.php?page=about" onclick="showPage('about')">About</a>
-           <a class="sidebar-btn" href="index.php?page=contact" onclick="showPage('contact')">Contact</a>
-           <a class="sidebar-btn" href="index.php?page=projects" onclick="showPage('projects')">Projects</a>
-           <a class="sidebar-btn" href="index.php?page=resume" onclick="showPage('resume')">Resume</a>
+           <a class="sidebar-btn" href="/home" onclick="showPage('home')">Home</a>
+           <a class="sidebar-btn" href="/about" onclick="showPage('about')">About</a>
+           <a class="sidebar-btn" href="/contact" onclick="showPage('contact')">Contact</a>
+           <a class="sidebar-btn" href="/projects" onclick="showPage('projects')">Projects</a>
+           <a class="sidebar-btn" href="/resume" onclick="showPage('resume')">Resume</a>
         </aside>
         
         <!-- Main Content Area -->
