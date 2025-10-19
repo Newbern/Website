@@ -3,7 +3,7 @@
 $allowedPages = ['home', 'about', 'contact', 'projects', 'resume'];
 
 // Getting current page
-$page = $_GET['page'] ?? 'home';
+$page = $_GET['page'] ?? '';
 
 // Validating page
 if (!in_array($page, $allowedPages)) {
