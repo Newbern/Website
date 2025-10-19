@@ -12,7 +12,7 @@
         <meta name="theme-color" content="#af4428">
 
         <!-- Icon -->
-        <link rel="icon" type="image/png" href="app/media/Logo/Icon.png">
+        <link rel="icon" type="image/png" href="/favicon.png">
 
         <!-- Importing Fonts from Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
