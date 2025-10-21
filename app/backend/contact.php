@@ -1,16 +1,12 @@
 <?php
-// Gmail Set up
 // Importing Files
-require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-require 'vendor/phpmailer/phpmailer/src/Exception.php';
+require __DIR__ .'/../../vendor/autoload.php';
 
 // Getting Classes
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Loading Environment Variables
-require 'vendor\autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable('app/backend');
 $dotenv->load();
 
